@@ -1,1 +1,1 @@
-export const BaseURL = `http://www.omdbapi.com/?apikey=a36c37c6`;
+export const BaseURL = `https://www.omdbapi.com/?apikey=a36c37c6`;

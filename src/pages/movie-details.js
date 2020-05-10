@@ -50,7 +50,7 @@ const MovieDetailsPage = (props) => {
 
   return (
     <div style={styles.container}>
-      <Link href="/movies-list">
+      <Link href="/">
         <h2 style={styles.homeLink}>Home</h2>
       </Link>
       {renderDetails()}
