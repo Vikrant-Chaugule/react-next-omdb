@@ -1,5 +1,5 @@
 import { withRouter } from "next/router";
-import { useRouter } from "next/router";
+import { MovieDetailRow } from "../movie-detail-row/movie-detail-row";
 
 const MovieDetailsContainer = (props) => {
   const {
@@ -14,19 +14,9 @@ const MovieDetailsContainer = (props) => {
   } = props.movie;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          height: 500,
-        }}
-      >
-        <MovieDetailRow label="Title" value={Title || "Argo"} />
+    <div style={styles.container}>
+      <div style={styles.rowContainer}>
+        <MovieDetailRow label="Title" value={Title} />
         <MovieDetailRow label="Year" value={Year} />
         <MovieDetailRow label="Released" value={Released} />
         <MovieDetailRow label="Genre" value={Genre} />
@@ -41,18 +31,13 @@ const MovieDetailsContainer = (props) => {
 
 export default withRouter(MovieDetailsContainer);
 
-const MovieDetailRow = (props) => {
-  return (
-    <span
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        margin: 10,
-      }}
-    >
-      <h3 style={{ color: "white" }}>{props.label} : </h3>
-      <h3 style={{ color: "white" }}>{props.value}</h3>
-    </span>
-  );
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  rowContainer: {
+    width: "100%",
+    height: 500,
+  },
 };

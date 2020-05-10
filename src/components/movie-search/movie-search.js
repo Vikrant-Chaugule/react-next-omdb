@@ -1,4 +1,3 @@
-import styles from "./movie-search.module.css";
 import { useState } from "react";
 
 export const MovieSearch = (props) => {
@@ -16,29 +15,50 @@ export const MovieSearch = (props) => {
   };
 
   return (
-    <div className={styles.searchContainer}>
+    <div style={styles.searchContainer}>
       <input
         type="text"
         value={movieName}
         onChange={onChange}
         onKeyPress={onKeyDown}
-        className={styles.searchBar}
+        style={styles.searchBar}
         placeholder="Search you favorite shows here.."
-      />
-      <img
-        className={styles.searchIcon}
-        src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
       />
     </div>
   );
 };
 
-// const styles = {
-//   searchContainer: {
-//     width: 490,
-// height: 75,
-// display: 'block',
-// margin: 0 auto,
-//     /* background-color: aqua, */
-// }
-// }
+const styles = {
+  searchContainer: {
+    width: "50%",
+    height: 75,
+    alignSelf: "center",
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  searchBar: {
+    backgroundColor: "#1d1d1f",
+    color: "white",
+    marginTop: 0,
+    marginBottom: 0,
+    width: "100%",
+    height: 45,
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 20,
+    paddingRight: 20,
+    borderRadius: 1,
+    outline: "none",
+  },
+  searchIcon: {
+    position: "relative",
+    float: "right",
+    width: 75,
+    height: 45,
+    top: -47,
+    right: -45,
+    backgroundColor: "grey",
+    borderColor: "black",
+    borderWidth: 2,
+  },
+};
