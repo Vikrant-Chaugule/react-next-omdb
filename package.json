@@ -1,0 +1,27 @@
+{
+  "name": "react-next-omdb",
+  "version": "1.0.0",
+  "description": "This project is used to implement react with next js using omdb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vikrant-Chaugule/react-next-omdb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vikrant-Chaugule/react-next-omdb/issues"
+  },
+  "homepage": "https://github.com/Vikrant-Chaugule/react-next-omdb#readme",
+  "dependencies": {
+    "next": "^9.3.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
