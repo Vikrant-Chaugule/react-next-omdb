@@ -19,7 +19,7 @@ const HomePage = (props) => {
 
   useEffect(() => {
     if (name.length >= 3) {
-      fetch(`http://www.omdbapi.com/?apikey=a36c37c6&s=${name}`)
+      fetch(`${BaseURL}&s=${name}`)
         .then((res) => res.json())
         .then((response) => {
           if (response.Error) {
