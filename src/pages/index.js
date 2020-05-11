@@ -40,8 +40,7 @@ const HomePage = (props) => {
           }
 
           setMovie(response);
-        })
-        .catch((err) => console.log(err));
+        });
       return;
     }
     if (name.length > 2) {
@@ -60,14 +59,11 @@ const HomePage = (props) => {
           }
 
           setMovieList(response.Search);
-        })
-        .catch((err) => console.log(err));
+        });
     }
   }, [name]);
 
   const renderMovieList = () => {
-    console.log(Object.keys(movie));
-
     if (Object.keys(movie).length != []) {
       return (
         <MovieCard
