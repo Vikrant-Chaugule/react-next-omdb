@@ -11,6 +11,11 @@ const HomePage = (props) => {
   const [movie, setMovie] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
+  const onSearch = (name) => {
+    setMovie({});
+    setName(name);
+  };
+
   const onClick = async (imdbID) => {
     await Router.push({
       pathname: "/movie-details",
@@ -20,7 +25,7 @@ const HomePage = (props) => {
 
   useEffect(() => {
     if (name.length > 0 && name.length <= 2) {
-      fetch(`${BaseURL}&t=${name}&`)
+      fetch(`${BaseURL}&t=${name}`)
         .then((res) => res.json())
         .then((response) => {
           if (response.Error) {
@@ -40,7 +45,7 @@ const HomePage = (props) => {
       return;
     }
     if (name.length > 2) {
-      fetch(`${BaseURL}&s=${name}&`)
+      fetch(`${BaseURL}&s=${name}`)
         .then((res) => res.json())
         .then((response) => {
           if (response.Error) {
@@ -61,6 +66,8 @@ const HomePage = (props) => {
   }, [name]);
 
   const renderMovieList = () => {
+    console.log(Object.keys(movie));
+
     if (Object.keys(movie).length != []) {
       return (
         <MovieCard
@@ -106,7 +113,7 @@ const HomePage = (props) => {
 
   return (
     <div style={styles.container}>
-      <MovieSearch setName={setName} />
+      <MovieSearch setName={onSearch} />
       <p style={styles.errorMessage}>{errorMessage}</p>
       <div style={styles.movieListContainer}>{renderMovieList()}</div>
     </div>
