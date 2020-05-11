@@ -86,6 +86,9 @@ const styles = {
     height: "100%",
   },
   homeLink: {
+    borderRadius: 20,
+    textAlign: "center",
+    width: 100,
     backgroundColor: "black",
     color: "white",
     textDecoration: "none",

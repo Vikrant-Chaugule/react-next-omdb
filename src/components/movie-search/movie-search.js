@@ -22,7 +22,7 @@ export const MovieSearch = (props) => {
         onChange={onChange}
         onKeyPress={onKeyDown}
         style={styles.searchBar}
-        placeholder="Search you favorite shows here.."
+        placeholder="Search you favorite shows, movies here.."
       />
     </div>
   );

@@ -8,6 +8,7 @@ import { BaseURL } from "../constants/constants";
 const HomePage = (props) => {
   const [name, setName] = useState("");
   const [movieList, setMovieList] = useState([]);
+  const [movie, setMovie] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
   const onClick = async (imdbID) => {
@@ -18,8 +19,28 @@ const HomePage = (props) => {
   };
 
   useEffect(() => {
-    if (name.length >= 3) {
-      fetch(`${BaseURL}&s=${name}`)
+    if (name.length > 0 && name.length <= 2) {
+      fetch(`${BaseURL}&t=${name}&`)
+        .then((res) => res.json())
+        .then((response) => {
+          if (response.Error) {
+            setErrorMessage(
+              "Oops..are you sure anybody produced such movie?  "
+            );
+            const timeout = setTimeout(() => {
+              setErrorMessage("");
+              clearTimeout(timeout);
+            }, 3000);
+            return;
+          }
+
+          setMovie(response);
+        })
+        .catch((err) => console.log(err));
+      return;
+    }
+    if (name.length > 2) {
+      fetch(`${BaseURL}&s=${name}&`)
         .then((res) => res.json())
         .then((response) => {
           if (response.Error) {
@@ -40,7 +61,19 @@ const HomePage = (props) => {
   }, [name]);
 
   const renderMovieList = () => {
-    if (movieList.length !== 0) {
+    if (Object.keys(movie).length != []) {
+      return (
+        <MovieCard
+          key={movie.imdbID}
+          Title={movie.Title}
+          Year={movie.Year}
+          imdbID={movie.imdbID}
+          Type="movie"
+          Poster={movie.Poster}
+          onClick={onClick}
+        />
+      );
+    } else if (movieList.length !== 0) {
       return movieList.map((movie) => {
         return (
           <MovieCard

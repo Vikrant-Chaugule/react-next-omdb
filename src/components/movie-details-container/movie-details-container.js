@@ -35,6 +35,7 @@ const styles = {
   container: {
     display: "flex",
     flexDirection: "column",
+    marginLeft: 100,
   },
   rowContainer: {
     width: "100%",
